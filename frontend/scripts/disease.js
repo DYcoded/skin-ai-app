@@ -14,7 +14,7 @@ async function loadDiseases() {
 
     try {
     
-        const response = await fetch('diseases.json');
+        const response = await fetch('data/diseases.json');
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

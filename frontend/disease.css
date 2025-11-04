@@ -5,7 +5,9 @@ html {
     /* Çerçevenin kalınlığı (30px) */
     padding: 30px; 
     /* Sayfa kaysa bile çerçevenin sabit kalmasını sağlar */
-    background-attachment: fixed; 
+    background-attachment: fixed;
+    width: 1440px;
+   height: 2593px; 
 }
 
 /* ===== Temel Ayarlar ===== */

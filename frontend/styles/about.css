@@ -17,7 +17,9 @@ body {
     background-color: white; 
     margin: 0;
     padding-bottom: 40px; 
+
 }
+
 
 ::-webkit-scrollbar {
   display: none;

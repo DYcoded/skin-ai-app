@@ -49,7 +49,9 @@
             <div class="right-column">
                 <h1>Your Results:</h1>
                 <div id="result">
-                    
+                    <div class="placeholder">
+                    <p class="result-placeholder">No result yet. Upload an image and click 'Detect Now' to start.</p>
+                    </div>
                 </div>
             </div>
             
@@ -86,8 +88,42 @@ document.getElementById("detect").addEventListener("click", async () => {
         `;
     }
 });
-</script>
 
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+        
+        const fileInput = event.target;
+        
+        // Değiştireceğimiz ana kutu (.input-box)
+        const inputBox = document.querySelector('.input-box');
+        
+        // Gizleyeceğimiz orjinal içerik (ikon ve yazı)
+        const uploadIcon = document.getElementById('upload-icon');
+        const uploadText = document.getElementById('upload-text');
+
+        // Bir dosya seçilip seçilmediğini kontrol et
+        if (fileInput.files && fileInput.files[0]) {
+            
+            const reader = new FileReader();
+            
+            // Dosya okuma işlemi bittiğinde...
+            reader.onload = function(e) {
+                // 1. .input-box'ın arkaplan resmini seçilen resimle değiştir
+                // e.target.result, resmin data URL'sini içerir (örn: "url('data:image/jpeg;base64,...')")
+                inputBox.style.backgroundImage = `url(${e.target.result})`;
+                
+                // 2. Orjinal ikon ve yazıyı GİZLE
+                if (uploadIcon) {
+                    uploadIcon.style.display = 'none';
+                }
+                if (uploadText) {
+                    uploadText.style.display = 'none';
+                }
+            };
+            
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    });
+</script>
 
 </body>
 </html>

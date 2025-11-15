@@ -233,9 +233,12 @@ margin-left: 20px;
 
 .placeholder {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  color: #535151  !important;
+
 }
 
 .result-placeholder {
@@ -244,4 +247,21 @@ margin-left: 20px;
   color: #535151  !important;
   text-align: center;
   line-height: 1.5;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  position: absolute;
+  width: 25px;        
+  height: 25px;
+  border: 5px solid #a2f6d0; /* Halkanın donuk (arka plan) rengi */
+  border-top: 5px solid #27a0f0; /* Halkanın dönen (mavi) kısmı - rengi değiştirebilirsiniz */
+  border-radius: 50%; /* Tam bir daire yapar */
+  animation: spin 1s linear infinite; 
+  margin-top: 130px;
+  margin-left: 330px;
 }

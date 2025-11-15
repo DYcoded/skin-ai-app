@@ -67,6 +67,12 @@ document.getElementById("detect").addEventListener("click", async () => {
         return;
     }
 
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `
+        <div class="loading-spinner"></div>
+        <p class="placeholder" style="margin: 0;">Loading... Please wait.</p>
+    `;
+
     const formData = new FormData();
     formData.append("image", fileInput.files[0]);
 
@@ -99,6 +105,8 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         // Gizleyeceğimiz orjinal içerik (ikon ve yazı)
         const uploadIcon = document.getElementById('upload-icon');
         const uploadText = document.getElementById('upload-text');
+
+
 
         // Bir dosya seçilip seçilmediğini kontrol et
         if (fileInput.files && fileInput.files[0]) {

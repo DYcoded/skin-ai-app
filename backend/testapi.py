@@ -11,7 +11,7 @@ CORS(app)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-model_path = os.path.join(script_dir, "skin_cancer_fast.keras")
+model_path = os.path.join(script_dir, "my_model.h5")
 label_encoder_path = os.path.join(script_dir, "label_encoder.pkl")
 
 model = load_model(model_path, compile=False)
@@ -47,7 +47,7 @@ def predict():
     file = request.files['image']
     
     try:
-        IMG_SIZE = (300, 300)  
+        IMG_SIZE = (96, 96)  
         img = Image.open(file.stream).convert("RGB").resize(IMG_SIZE)
         
         img_array = np.array(img) / 255.0
@@ -55,7 +55,7 @@ def predict():
 
         preds = model.predict(img_array)
         pred_class_index = np.argmax(preds)
-        confidence = float(np.max(preds)) #
+        confidence = float(np.max(preds)) 
 
         class_name = label_encoder[pred_class_index]
 

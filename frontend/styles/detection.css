@@ -206,3 +206,103 @@ cursor: pointer;
 #learn-more:hover {
   background-color: #6088a5;
 }
+
+@media (max-width: 480px) {
+    main {
+        flex-direction: column; 
+        margin-left: 0; 
+        margin-top: 30px;
+        padding: 0 15px; 
+        justify-content: center;
+        align-items: center; 
+        gap: 30px;
+    }
+
+    #heading {
+        font-size: 25px;
+        margin-top: 20px;
+        margin-left: 0; 
+        text-align: center;
+        width: 100%;
+    }
+
+    .left-column {
+        width: 100%; 
+        align-items: center; 
+        gap: 15px;
+    }
+
+    .input-box {
+        width: 90%; 
+        max-width: 250px; 
+        height: 250px; 
+        border-radius: 40px;
+    }
+    
+    #upload-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    #upload-text {
+        font-size: 12px;
+        margin-top: 80px;
+    }
+    
+    #detect {
+        font-size: 20px;
+        padding: 8px 12px;
+        width: 90%; 
+        max-width: 200px;
+        margin-left: 0;
+    }
+
+    .right-column {
+        width: 100%; 
+        margin-left: 0; 
+        align-items: center; 
+    }
+
+    .right-column h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    #result {
+        width: 90%; 
+        max-width: 700px; 
+        height: auto; 
+        min-height: 200px;
+    }
+    
+    #result h3 {
+        font-size: 20px;
+        margin-left: 15px;
+        margin-top: 15px;
+    } 
+
+    #result p {
+        font-size: 16px;
+        line-height: 1.5rem; 
+        margin-left: 15px;
+        padding-bottom: 15px;
+    }
+
+
+     .loading-spinner {
+        width: 20px; 
+        height: 20px;
+        border-width: 4px; 
+        margin-top: 100px;
+        margin-left: 0; 
+    }
+
+    
+    #learn-more {
+        margin-left: 0;
+        margin-top: 10px;
+        align-self: center; 
+        font-size: 16px;
+        padding: 4px 8px;
+    }
+}

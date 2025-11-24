@@ -16,18 +16,26 @@
         
 </head>
 <body>
+   
     <div class="nav-wrapper">
         <nav class="main-nav">
            <div class="logo">
                 Detect<span class="logo-blue">Disease</span>
            </div>
-           <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="detection.html" class="active">Detection Page</a></li>
-                <li><a href="diseases.html">Diseases</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="team.html">Our Team</a></li>
-           </ul>
+                       <div class="hamburger-menu">
+                <button id="menu-toggle">
+                    <img src="/images/hamburger-menu.svg" alt="">
+                </button>
+            </div>
+               <div class="normal-menu">
+               <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="detection.html" class="active">Detection Page</a></li>
+                    <li><a href="diseases.html">Diseases</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Our Team</a></li> 
+               </ul>
+               </div>
         </nav>
     </div>
 
@@ -146,6 +154,7 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         }
     });
 </script>
+<script src="/frontend/scripts/default.js"></script>
 
 </body>
 </html>

@@ -119,3 +119,67 @@ flex-shrink: 0;
 .disease-item:nth-child(even) {
     flex-direction: row-reverse;
 }
+
+@media (max-width: 480px) {
+
+    .intro-content-wrapper {
+        width: 90%;
+        flex-direction: column;
+        height: auto; 
+    }
+    
+    .doctor-image {
+        height: auto; 
+        width: auto;
+        order: 1;
+    }
+
+    .header-text {
+        order: 2;
+    }
+    
+    .header-text h1 {
+        font-size: 24px;
+    }
+    
+    .header-text p {
+        font-size: 14px;
+    }
+    
+
+    .disease-item {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .disease-item:nth-child(even) {
+        flex-direction: column;
+    }
+    
+    .disease-image {
+        order: 1; 
+        flex: 0 0 auto; 
+    }
+
+    .disease-text {
+        order: 2; 
+        text-align: center; 
+        width: 100%; 
+    }
+    
+    .disease-image img {
+        width: 200px; 
+        height: 200px;
+    }
+    
+    .disease-text h2 {
+        font-size: 20px;
+    }
+
+    .disease-text p {
+        font-size: 14px;
+    }
+}

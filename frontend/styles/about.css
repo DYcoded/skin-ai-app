@@ -52,4 +52,45 @@ margin-bottom: 30px;
     margin-top: 20px; 
 }
 
+@media (max-width: 768px) {
+    
+    .about-content-wrapper {
+        flex-direction: column; 
+        min-height: auto; 
+        padding: 40px 20px; 
+        gap: 30px; 
+    }
+
+    
+   
+  .about-image img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover; 
+    display: block;
+}
+
+    .about-text {
+        flex: auto; 
+        max-width: 100%; 
+        margin-right: 0; 
+        padding: 0 10px;
+        order: 2; 
+    }
+
+    .about-section h1 {
+        font-size: 32px; 
+        margin-bottom: 20px;
+        text-align: center; 
+    }
+
+    .about-section p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .paragraphs {
+        gap: 15px; 
+    }
+}
 

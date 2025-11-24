@@ -72,3 +72,36 @@ contact-icon {
     width: 35px;
     height: 35px;
 }
+
+@media (max-width: 768px) {
+    .team-page-content {
+        padding: 40px 20px;
+    }
+
+    .team-header h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .contact-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .contact-columns {
+        flex-direction: column; 
+        gap: 40px; 
+        text-align: center; 
+    }
+    
+    .contact-column {
+        padding: 0 10%; 
+        text-align: center; 
+    }
+
+    .site-footer {
+        flex-direction: column; 
+        font-size: 16px;
+        gap: 10px;
+    }
+}

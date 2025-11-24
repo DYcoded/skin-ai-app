@@ -11,13 +11,19 @@
     
      </head>
      <body>
-       
+       <div id="swup">
     <header class="sticky-nav-header">
         <div class="nav-wrapper">
             <nav class="main-nav">
                <div class="logo">
                     Detect<span class="logo-blue">Disease</span>
                </div>
+                           <div class="hamburger-menu">
+                <button id="menu-toggle">
+                    <img src="/images/hamburger-menu.svg" alt="">
+                </button>
+            </div>
+               <div class="normal-menu">
                <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="detection.html">Detection Page</a></li>
@@ -25,6 +31,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="team.html" class="active">Our Team</a></li> 
                </ul>
+               </div>
             </nav>
         </div>
     </header>
@@ -62,5 +69,9 @@
         <img src="/images/arel-logo.png" alt="Istanbul Arel University Logo" class="footer-logo">
         <p>Project for Istanbul Arel University, 2025.</p>
     </footer>
+    </div>
+        <script src="https://unpkg.com/swup@4"></script>
+<script src="/frontend/scripts/swup-init.js"></script>
+    <script src="/frontend/scripts/default.js"></script>
 </body>
 </html>

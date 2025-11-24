@@ -262,7 +262,8 @@ flex-shrink: 0;
   display: inline-block;
   background: #000;
   color: #FFFAFA;
-
+border: none;
+cursor: pointer;
 font-family: Actor;
 font-size: 18px;
 font-style: normal;

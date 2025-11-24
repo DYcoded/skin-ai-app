@@ -265,3 +265,24 @@ margin-left: 20px;
   margin-top: 130px;
   margin-left: 330px;
 }
+
+#learn-more {
+  margin-left: 550px;
+  display: inline-block;
+  background: #000;
+  color: #FFFAFA;
+font-family: Actor;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 4px 8px;
+cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+#learn-more:hover {
+  background-color: #6088a5;
+}

@@ -83,15 +83,28 @@ document.getElementById("detect").addEventListener("click", async () => {
     });
 
     const data = await response.json();
-
     if (data.error) {
         document.getElementById("result").innerHTML = `<p style="color:red">${data.error}</p>`;
     } else {
-        document.getElementById("result").innerHTML = `
-            <h3>🧪Based on the photo, this could be your skin condition: ${data.prediction.toUpperCase()}</h3>
-            <p>Accuracy: ${(data.confidence).toFixed(2)}%</p>
+        const firstPrediction = data.top_2_predictions[0];
+        const secondPrediction = data.top_2_predictions[1];
+
+        let resultHTML = `
+            <h3>🧪Based on the photo, this could be your skin condition: ${firstPrediction.class.toUpperCase()}</h3>
+            <p>Accuracy: ${(firstPrediction.confidence).toFixed(2)}%</p>
             <p>Description: ${data.description}</p>
+            <h3>🧪Other Possible Condition:</h3>
+            <p>${secondPrediction.class.toUpperCase()} with an accuracy of ${(secondPrediction.confidence).toFixed(2)}%</p>
         `;
+
+        document.getElementById("result").innerHTML = resultHTML;
+
+        const learnMoreWrapper = document.createElement("div");
+        learnMoreWrapper.className = "learn-more-wrapper";
+        learnMoreWrapper.innerHTML = `<a href="diseases.html"><button id="learn-more">Learn More</button></a>`;
+        document.getElementById("result").appendChild(learnMoreWrapper);
+
+
     }
 });
 

@@ -186,25 +186,70 @@ margin-left: 20px;
   margin-left: 330px;
 }
 
-#learn-more {
-  margin-left: 550px;
-  display: inline-block;
-  background: #000;
-  color: #FFFAFA;
-font-family: Actor;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-padding: 4px 8px;
-cursor: pointer;
-  text-decoration: none;
-  border: none;
-  transition: background-color 0.3s;
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#learn-more:hover {
-  background-color: #6088a5;
+.popup-content {
+    background: rgba(255, 255, 255, 0.911);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out; 
+}
+
+.popup-content h2 {
+    color: #47b064; /* Kırmızı uyarı rengi */
+    margin-top: 0;
+    font-family: Actor;
+    font-size: 1.5em;
+}
+
+.popup-content p {
+    margin: 15px 0;
+
+    font-family: Actor;
+    font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 2rem;
+    color: #333;
+}
+
+#accept-disclaimer {
+    background-color: #4aa2dd; /* Mavi onay butonu */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#accept-disclaimer:hover {
+    background-color: #065285;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.hidden {
+    display: none !important;
 }
 
 @media (max-width: 480px) {

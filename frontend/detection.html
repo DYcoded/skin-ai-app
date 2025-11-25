@@ -15,6 +15,18 @@
         <link rel="icon" type="image/png" href="/images/web-icon.svg"/>
         
 </head>
+
+<div id="disclaimer-popup" class="popup-overlay">
+    <div class="popup-content">
+        <h2>IMPORTANT NOTICE: Medical Disclaimer</h2>
+        <hr>
+        <p>This application is <strong>NOT</strong> a medical diagnosis tool.</p>
+        <p>It is developed only for awareness and educational purposes. AI predictions, under no circumstances, can replace a consultation with a licensed dermatologist or doctor.</p>
+        <p>If you have any health concerns, please seek immediate medical attention from a qualified healthcare professional.</p>
+        <button id="accept-disclaimer">I UNDERSTAND AND AGREE</button>
+    </div>
+</div>
+
 <body>
    
     <div class="nav-wrapper">
@@ -108,27 +120,20 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         
         const fileInput = event.target;
         
-        // Değiştireceğimiz ana kutu (.input-box)
         const inputBox = document.querySelector('.input-box');
         
-        // Gizleyeceğimiz orjinal içerik (ikon ve yazı)
         const uploadIcon = document.getElementById('upload-icon');
         const uploadText = document.getElementById('upload-text');
 
 
 
-        // Bir dosya seçilip seçilmediğini kontrol et
         if (fileInput.files && fileInput.files[0]) {
             
             const reader = new FileReader();
             
-            // Dosya okuma işlemi bittiğinde...
             reader.onload = function(e) {
-                // 1. .input-box'ın arkaplan resmini seçilen resimle değiştir
-                // e.target.result, resmin data URL'sini içerir (örn: "url('data:image/jpeg;base64,...')")
                 inputBox.style.backgroundImage = `url(${e.target.result})`;
                 
-                // 2. Orjinal ikon ve yazıyı GİZLE
                 if (uploadIcon) {
                     uploadIcon.style.display = 'none';
                 }
@@ -140,6 +145,25 @@ document.getElementById('imageUpload').addEventListener('change', function(event
             reader.readAsDataURL(fileInput.files[0]);
         }
     });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('disclaimer-popup');
+    const acceptButton = document.getElementById('accept-disclaimer');
+    
+    const hasAccepted = localStorage.getItem('disclaimerAccepted');
+
+    if (hasAccepted === 'true') {
+        popup.classList.add('hidden');
+    } else {
+        popup.classList.remove('hidden');
+    }
+
+    acceptButton.addEventListener('click', () => {
+        popup.classList.add('hidden');
+        localStorage.setItem('disclaimerAccepted', 'true');
+    });
+});
 </script>
 <script src="/frontend/scripts/default.js"></script>
 

@@ -1,5 +1,5 @@
 /venv
-
+/training
 *.h5
 *.weights.h5
 *.hdf5

@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from tensorflow.keras.models import Model
-from tensorflow.keras.applications import EfficientNetB3
-from tensorflow.keras.applications.efficientnet import preprocess_input as efficientnet_preprocess_input
+from tensorflow.keras.applications import ResNet50V2
+from tensorflow.keras.applications.resnet_v2 import preprocess_input as resnet_preprocess_input
 from tensorflow.keras import layers
 from PIL import Image
 import numpy as np
@@ -16,14 +16,14 @@ CORS(app)
 
 # define paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
-weights_path = os.path.join(script_dir, "fixed_final_weights.weights.h5")
+weights_path = os.path.join(script_dir, "final_resnet_oversampled_weights.weights.h5")
 label_encoder_path = os.path.join(script_dir, "class_indices.json")
 
 # define model architecture
-IMG_SIZE = (300, 300)
+IMG_SIZE = (380, 380)
 NUM_CLASSES = 7
 
-base_model = EfficientNetB3(
+base_model = ResNet50V2(
     weights=None,
     include_top=False,
     input_shape=IMG_SIZE + (3,),
@@ -75,6 +75,16 @@ disease_info = {
     "vasc": "Vascular Lesion — benign blood vessel growths. Usually harmless but should be monitored. If you notice changes or symptoms, please see a dermatologist for evaluation."
 }
 
+FULL_NAME_MAP = {
+    "akiec": "Actinic Keratoses",
+    "bcc": "Basal Cell Carcinoma",
+    "bkl": "Benign Keratosis",
+    "df": "Dermatofibroma",
+    "mel": "Melanoma",
+    "nv": "Melanocytic Nevi",
+    "vasc": "Vascular Lesion"
+}
+
 # define routes
 @app.route('/', methods=['GET'])
 def home():
@@ -91,23 +101,25 @@ def predict():
         # preprocess image
         img = Image.open(file.stream).convert("RGB").resize(IMG_SIZE)
         img_array = np.array(img)        
-        processed_img = efficientnet_preprocess_input(img_array) 
+        processed_img = resnet_preprocess_input(img_array)
         processed_img = np.expand_dims(processed_img, axis=0)
         preds = model.predict(processed_img)
         probabilities = preds[0]
 
         top_indices = np.argsort(probabilities)[::-1][:2] 
         top_2_predictions = []
+
         
         # compile top 2 predictions with descriptions
         for i in top_indices:
-            class_name = str(label_encoder[i])
+            short_name = str(label_encoder[i])
+            full_name = FULL_NAME_MAP.get(short_name, short_name)
             confidence = float(probabilities[i])
             
-            description = disease_info.get(class_name, "No description available for this disease.")
+            description = disease_info.get(short_name, "No description available for this disease.")
             
             top_2_predictions.append({
-                "class": class_name,
+                "class": full_name,
                 "confidence": confidence * 100,
                 "description": description if i == top_indices[0] else None 
             })

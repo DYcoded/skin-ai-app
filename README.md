@@ -28,7 +28,8 @@ We are preparing to deploy the full-stack application for public access in the u
 ## Features
 
 * **User-Friendly Interface:** Custom-designed, multi-page web application (Home, Detection, About, Team).
-* **AI Analysis:** Powered by a Convolutional Neural Network (CNN) trained on the HAM10000 dataset.
+* **Responsive Interface:** Adapted for mobile, and desktop screens.
+* **AI Analysis:** Powered by a ResNet50V2 trained on the HAM10000 dataset.
 * **Real-Time Prediction:** Instant classification of skin lesions with confidence scores.
 * **7 Disease Classes:** Can identify Melanoma, Nevi, Dermatofibroma, and more.
 * **Secure Backend:** Robust Flask API handling image processing and model inference.
@@ -51,20 +52,12 @@ We are preparing to deploy the full-stack application for public access in the u
 * **NumPy & Pillow:** Image preprocessing.
 * **Dataset:** HAM10000 (Human Against Machine with 10,000 Training Images).
 
-## Model Details (Current Status)
+## Model Details
 
-* **Architecture:** Convolutional Neural Network (CNN)
-* **Input Resolution:** 96x96 pixels (Intermediate Prototype)
-* **Training Accuracy:** ~96% (on validation set)
-* **Status:** The model is currently in the optimization phase. We are working on scaling up the input resolution to 300x300 for higher real-world accuracy.
-
-
-## Future Roadmap
-
-- [ ] **High-Res Retraining:** Upgrade model input to 300x300px for better detail extraction.
-- [ ] **Cloud Deployment:** Deploy Backend to Render and Frontend to Vercel.
-- [ ] **Mobile Responsiveness:** Optimize CSS for mobile devices.
-- [ ] **Advanced Augmentation:** Improve model robustness against lighting variations.
+* **Architecture:** ResNet50V2
+* **Input Resolution:** 380x380 pixels 
+* **Training Accuracy:** ~80% (on validation set)
+* **Status:** The model is currently in the optimization phase. We are constantly working on it to get better results on random data.
 
 
 ## The Team

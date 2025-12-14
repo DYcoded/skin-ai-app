@@ -2,6 +2,5 @@ Flask
 flask-cors
 Pillow
 gunicorn 
-numpy==1.24.4 
 pandas==2.2.2 
 tensorflow==2.10.0
